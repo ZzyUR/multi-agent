@@ -7,7 +7,7 @@
 !.env.sample
 !**/.env.example
 !**/.env.sample
-backend/.env
+!backend/.env
 
 # Python virtual environments and caches
 .venv/
