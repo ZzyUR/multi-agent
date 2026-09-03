@@ -1,0 +1,29 @@
+# Research depth/breadth profiles — three preset tiers
+# All values can be overridden via env vars (MAX_DEPTH, MAX_BREADTH, etc.)
+
+profiles:
+  fast:
+    description: "快速模式 — 2-3 分钟，适合简单问题"
+    max_depth: 1          # 研究迭代轮数上限
+    max_breadth: 2        # 单轮并行子 Agent 数上限
+    max_total_workers: 4  # 累计子 Agent 硬上限
+    max_tokens_budget: 50000
+    enable_assess: false  # 跳过"评估补研"轮，节省一轮 worker 时间
+
+  standard:
+    description: "标准模式 — 5-10 分钟，适合中等复杂问题"
+    max_depth: 2
+    max_breadth: 4
+    max_total_workers: 10
+    max_tokens_budget: 150000
+    enable_assess: false  # 默认跳过补研轮提速；如需更全面改 deep 或置 true
+
+  deep:
+    description: "深度模式 — 15-30 分钟，适合复杂研究课题"
+    max_depth: 3
+    max_breadth: 6
+    max_total_workers: 20
+    max_tokens_budget: 400000
+    enable_assess: true   # 深度档保留评估→补研迭代
+
+default_profile: standard

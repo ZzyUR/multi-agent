@@ -1,0 +1,156 @@
+/* ── Design tokens ──────────────────────────────────────────────── */
+:root {
+  --c-bg:           rgb(246, 248, 252);
+  --c-white:        #ffffff;
+  --c-text:         rgb(15, 23, 42);
+  --c-text-2:       rgb(71, 85, 105);
+  --c-text-3:       rgb(100, 116, 139);
+  --c-text-4:       rgb(148, 163, 184);
+  --c-blue:         rgb(37, 99, 235);
+  --c-blue-d:       rgb(29, 78, 216);
+  --c-blue-sky:     rgb(14, 165, 233);
+  --c-blue-light:   rgb(234, 241, 254);
+  --c-blue-border:  rgb(219, 234, 254);
+  --c-card-bg:      rgb(250, 252, 255);
+  --c-card-border:  rgb(232, 239, 249);
+  --c-nav-border:   rgb(230, 236, 245);
+  --c-divider:      rgb(238, 242, 248);
+  --c-divider-2:    rgb(226, 232, 240);
+  --c-green:        rgb(22, 163, 74);
+  --c-red:          rgb(239, 68, 68);
+  --c-dark:         rgb(11, 18, 32);
+  --c-dark-card:    rgb(19, 28, 46);
+  --c-dark-border:  rgb(36, 50, 70);
+}
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Manrope, 'Noto Sans SC', system-ui, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+}
+
+button { font-family: inherit; cursor: pointer; }
+a { text-decoration: none; }
+
+/* ── Animations ─────────────────────────────────────────────────── */
+@keyframes ds-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.15; }
+}
+@keyframes ds-flow {
+  100% { stroke-dashoffset: -28; }
+}
+@keyframes ds-ring {
+  0%   { transform: scale(0.7); opacity: 0.7; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@keyframes ds-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes ds-up {
+  0%   { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Utility classes ────────────────────────────────────────────── */
+.ds-btn {
+  transition: transform 0.15s, box-shadow 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.ds-btn:hover  { transform: translateY(-2px); }
+.ds-btn:active { transform: translateY(0); }
+
+.ds-link { transition: color 0.15s; }
+.ds-link:hover { color: var(--c-blue) !important; }
+
+.ds-hover-lift {
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.ds-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: rgba(37, 99, 235, 0.35) 0 18px 40px -18px;
+  border-color: var(--c-blue-border) !important;
+}
+
+.ds-anim-up {
+  animation: ds-up 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.mono { font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace; }
+
+/* Section helpers */
+.section-tag {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--c-blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.section-h2 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 12px 0 0;
+}
+.section-sub {
+  font-size: 17px;
+  color: var(--c-text-3);
+  margin: 14px 0 0;
+}
+
+/* ── Element Plus overrides ─────────────────────────────────────── */
+.el-tabs__item {
+  font-family: Manrope, 'Noto Sans SC', system-ui, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: var(--c-text-4) !important;
+}
+.el-tabs__item.is-active {
+  color: var(--c-blue) !important;
+}
+.el-tabs__active-bar {
+  background-color: var(--c-blue) !important;
+}
+.el-tabs__nav-wrap::after {
+  background-color: var(--c-nav-border) !important;
+}
+.el-input__wrapper {
+  border-radius: 10px !important;
+  box-shadow: 0 0 0 1px var(--c-nav-border) !important;
+  background: var(--c-white) !important;
+}
+.el-input__wrapper:hover,
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 1px var(--c-blue) !important;
+}
+.el-input__inner {
+  font-family: Manrope, 'Noto Sans SC', system-ui, sans-serif !important;
+  font-size: 15px !important;
+  color: var(--c-text) !important;
+}
+.el-select .el-input__wrapper {
+  cursor: pointer;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+  background: padding-box var(--c-divider-2);
+  border-radius: 99px;
+  border: 2px solid transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: padding-box var(--c-text-4);
+}

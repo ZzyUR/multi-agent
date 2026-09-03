@@ -1,0 +1,70 @@
+# Environment variables and secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!.env.sample
+!**/.env.example
+!**/.env.sample
+backend/.env
+
+# Python virtual environments and caches
+.venv/
+venv/
+env/
+backend/.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.egg-info/
+.eggs/
+
+# Node dependencies and generated output
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.parcel-cache/
+.turbo/
+.vite/
+coverage/
+dist/
+build/
+.next/
+.nuxt/
+.output/
+
+# Application runtime data
+backend/data/
+
+# Logs and temporary files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+.cache/
+
+# IDE and local tooling
+.idea/
+.vscode/
+*.iml
+.claude/settings.local.json
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
